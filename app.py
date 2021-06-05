@@ -10,7 +10,7 @@ toolbar = DebugToolbarExtension(app)
 
 board = boggle_game.make_board()
 
-@app.route('/index')
+@app.route('/')
 def show_game():
     session['board'] = board
     return render_template('index.html', board=board)
