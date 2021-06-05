@@ -9,17 +9,17 @@
 </head>
 <body>
     <h1>Boggle Game</h1>
-    <!-- <div id="game-container"> -->
-        <table id="game-board">
-            {% for word in board %} 
-                <tr>
-                {% for letter in word %} 
-                    <td>{{letter}}</td>
-                {% endfor %} 
-            </tr>
+    <h2 id="result"></h2>
+    <table id="game-board">
+        {% for word in board %} 
+            <tr>
+            {% for letter in word %} 
+                <td>{{letter}}</td>
             {% endfor %} 
-        </table>
-    <!-- </div> -->
+        </tr>
+        {% endfor %} 
+    </table>
+    
     <br>
     <form action="" id="guess-form">
         <label for="guess">Enter Your Guess:</label>
