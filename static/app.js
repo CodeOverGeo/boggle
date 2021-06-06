@@ -10,8 +10,8 @@ const resultConverter = {
     'not-word': 'Guess is not a word!'};
 
 let score = 0;
-let timer = 10;
-let countdownTimer = null;
+let timer = 60;
+
 
 const guesses = [];
 
@@ -58,11 +58,7 @@ function updateScore(word, guess){
     }
 }
 
-$resetScore.on('click', function(evt){
-    
-    score = 0;
-    $('#score').text(`Score: ${score}`);
-})
+
 
 async function saveResults(){
     res = await axios.post('/finish', {highScore: score})
