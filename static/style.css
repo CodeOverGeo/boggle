@@ -3,13 +3,13 @@ h1 {
     color: blue;
 }
 
-h2{
+h2, h3{
     text-align: center;
     color: rgb(167, 15, 167);
+    margin-bottom: 0;
 }
 
 #game-board td {
-    color: blue;
     width: 50px;
     height: 50px;
     border: solid 1px rgb(71, 71, 71);
@@ -21,8 +21,35 @@ h2{
     margin-right: auto;
 }
 
-form {
-    text-align: center;
-    padding: 10px;
+.letter {
+    color: white;
 }
 
+form {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.center-button {
+    text-align: center;
+}
+
+button {
+    display: inline-block;
+    width: auto;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    background: blue;
+    font-weight: 700;
+    }
+
+#guess {
+    margin-bottom: 10px;
+}
+
+#saved-score {
+    position: fixed;
+    top: 0;
+
+}

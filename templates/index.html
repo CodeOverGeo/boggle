@@ -9,17 +9,27 @@
 </head>
 <body>
     <h1>Boggle Game</h1>
-    <h2 id="result"></h2>
+    <div id='saved-score'><p>Times Played:{{times_played}}</p>
+        <p>High Score:{{session['high_score']}}</p></div>
+    <h2 id="timer"></h2>
+    <h2 id="result">..PENDING</h2>
+    <div class='center-button'>
+    <button id="start">Start Game</button>
+    </div>
     <table id="game-board">
         {% for word in board %} 
             <tr>
             {% for letter in word %} 
-                <td>{{letter}}</td>
+                <td class="letter">{{letter}}</td>
             {% endfor %} 
         </tr>
         {% endfor %} 
     </table>
-    
+    <h2 id="score">Score: 0</h2>
+    <br>
+    <div class='center-button'>
+    <button id="reset-score">Reset Score</button>
+    </div>
     <br>
     <form action="" id="guess-form">
         <label for="guess">Enter Your Guess:</label>
