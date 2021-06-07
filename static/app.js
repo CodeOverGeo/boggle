@@ -2,7 +2,7 @@ const $submit = $('#submit-guess');
 const $resetScore = $('#reset-score');
 const $start = $('#start');
 const $timer = $('#timer');
-const $letter = $('.letter');
+const $onStart = $('#on-start')
 const $savedScore = $('#saved-score')
 const resultConverter = {
     'ok': 'Word is valid!', 
@@ -59,7 +59,6 @@ function updateScore(word, guess){
 }
 
 
-
 async function saveResults(){
     res = await axios.post('/finish', {highScore: score})
     console.log(res)
@@ -70,8 +69,8 @@ async function saveResults(){
 }
 
 $start.on('click', function() {
-    $letter.css('color', 'black');
-    $start.off();
+    $onStart.toggle();
+    $start.toggle();
     countdownTimer = setInterval(function(){
     timer--
     if(timer <= 0){

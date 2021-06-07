@@ -27,10 +27,7 @@ def check_guess():
     return jsonify(reply)
 
 @app.route('/finish', methods=['POST'])
-def finished():
-    # import pdb
-    # pdb.set_trace()
-    
+def finished():   
     if session.get('high_score', 0) < request.json['highScore']:
         session['high_score'] = request.json['highScore']
     times_played = session.get('timesPlayed', 0)

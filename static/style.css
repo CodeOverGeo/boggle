@@ -26,8 +26,8 @@ h2, h3{
     margin-right: auto;
 }
 
-.letter {
-    color: white
+#on-start {
+    display: none;
 }
 
 form {
