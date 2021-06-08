@@ -1,12 +1,12 @@
 from boggle import Boggle
 from flask import Flask, render_template, session, request, jsonify
-from flask_debugtoolbar import DebugToolbarExtension
+# from flask_debugtoolbar import DebugToolbarExtension
 
 boggle_game = Boggle()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'checkers'
 
-toolbar = DebugToolbarExtension(app)
+# toolbar = DebugToolbarExtension(app)
 
 times_played = 0
 
