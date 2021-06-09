@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from werkzeug.wrappers import response
 from app import app, times_played
-from flask import session
+from flask import json, session
 from boggle import Boggle
 
 class BoggleTests(TestCase):
@@ -49,3 +49,10 @@ class BoggleTests(TestCase):
         self.client.get('/')
         response = self.client.get('/find?guess=kdkd')
         self.assertEqual(response.json['result'], 'not-word')
+
+    def test_finish(self):
+        with self.client as client:
+            response = self.client.post('/finish', json = {'highScore': 31})
+            self.assertEqual(response.json['highScore'], 31)
+            self.assertEqual(response.json['timesPlayed'], 1)
+            

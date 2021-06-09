@@ -12,6 +12,7 @@ times_played = 0
 
 @app.route('/')
 def show_game():
+    """Generate game board and transmit both high score and times played."""
     board = boggle_game.make_board()
     session['board'] = board
     session.get('high_score', 0)
@@ -20,6 +21,10 @@ def show_game():
 
 @app.route('/find')
 def check_guess():
+    """
+    Check if guess is a valid word and if it exists on the game board
+    Reply back in json
+    """
     guess = request.args.get('guess')
     board = session['board']
     result = boggle_game.check_valid_word(board, guess)
@@ -27,9 +32,14 @@ def check_guess():
     return jsonify(reply)
 
 @app.route('/finish', methods=['POST'])
-def finished():   
-    if session.get('high_score', 0) < request.json['highScore']:
-        session['high_score'] = request.json['highScore']
+def finished():
+    """
+    Retrieve score from finished game and add it to session if it is the high score
+    Increment times played by 1 and reply back in json
+    """
+    score = request.json['highScore']
+    high_score = session.get('high_score', 0)
+    session['high_score'] = max(score, high_score)
     times_played = session.get('timesPlayed', 0)
     times_played += 1
     session['timesPlayed'] = times_played
